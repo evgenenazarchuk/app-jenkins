@@ -5,11 +5,7 @@ node {
         /* This builds the actual image; synonymous to
          * docker build on the command line */
 
-        steps{
-                script{
-                    sh 'docker build -t task20/devops-integration .'
-                }
-            }
+       app = docker.build("getintodevops/hellonode")
     }
 
     stage('Test image') {
