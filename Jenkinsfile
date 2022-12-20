@@ -5,7 +5,11 @@ node {
         /* This builds the actual image; synonymous to
          * docker build on the command line */
 
-        app = docker.build("task20/devops-integration")
+        steps{
+                script{
+                    sh 'docker build -t javatechie/devops-integration .'
+                }
+            }
     }
 
     stage('Test image') {
