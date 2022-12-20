@@ -1,6 +1,7 @@
 #!groovy
 // Check ub1 properties
 //ololo
+//ololo
 properties([disableConcurrentBuilds()])
 
 pipeline {
