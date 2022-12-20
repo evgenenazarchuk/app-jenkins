@@ -7,7 +7,7 @@ node {
 
         steps{
                 script{
-                    sh 'docker build -t javatechie/devops-integration .'
+                    sh 'docker build -t task20/devops-integration .'
                 }
             }
     }
