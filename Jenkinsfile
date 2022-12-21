@@ -11,6 +11,12 @@ node ("Node1") {
            app = docker.build("ololo/task20:${env.BUILD_NUMBER}", "-f Dockerfile .")
     }
     
+    stage(Run docker container) {
+        app = docker.image('ololo/task20:${env.BUILD_NUMBER}').withRun('-u root --entrypoint /bin/bash') {
+          //sh 'pip install version'
+        }   
+    }
+    
     /* stage('Build image') {
         app = docker.build("ololo91/task20")
     }
