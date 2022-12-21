@@ -12,9 +12,8 @@ node ("Node1") {
     }
     
     stage(Run docker container) {
-        app = docker.image('ololo/task20:${env.BUILD_NUMBER}').withRun('-u jenkins --entrypoint /bin/sh') {
-          //sh 'pip install version'
-        }   
+        app = docker.image('ololo/task20:${env.BUILD_NUMBER}').withRun('-u jenkins --entrypoint /bin/sh') 
+          
     }
     
     /* stage('Build image') {
