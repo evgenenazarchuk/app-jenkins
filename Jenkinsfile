@@ -1,7 +1,7 @@
 node ("Node1") {
     //def app
     def app_build
-    //def app_run
+    def app_run
     
     stage('Clone repository') {
       
@@ -14,9 +14,9 @@ node ("Node1") {
     }
     
     stage("Run docker container") {
-        //app_run = docker.image("ololo91/task20:${env.BUILD_NUMBER}").withRun('-p 80:80 -p 443:443') { 
-         //}
-        sh 'docker run -d -p 80:80 -p 443:443 ololo91/task20:${env.BUILD_NUMBER}'
+        app_run = docker.image("ololo91/task20:${env.BUILD_NUMBER}").withRun('-p 80:80 -p 443:443') { 
+         }
+        //sh 'docker run -d -p 80:80 -p 443:443 ololo91/task20:${env.BUILD_NUMBER}'
     }
 
      stage('Push image') {
