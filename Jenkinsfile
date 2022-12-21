@@ -8,7 +8,7 @@ node ("Node1") {
     }
     
     stage("Prepare build image") {
-           app = docker.build("-f .")
+           app = docker.build("ololo91/task20", "-f Dockerfile .")
     }
     
     /* stage('Build image') {
