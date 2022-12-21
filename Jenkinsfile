@@ -13,7 +13,7 @@ node ("Node1") {
     }
     
     stage("Prepare build image") {
-        app_build = docker.build("${registry}:latest", "-f Dockerfile .")
+        app_build = docker.build('${registry}:latest', '-f Dockerfile .')
     }
     
     stage('Push image') {
