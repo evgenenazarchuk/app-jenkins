@@ -4,7 +4,7 @@ node ("Node1") {
     def app_run
     
     environment{
-        registry = "ololo91/task20"
+        registry = 'ololo91/task20'
         registryCredential = 'docker-hub-credentials'        
     }
     
