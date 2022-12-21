@@ -8,8 +8,7 @@ node ("Node1") {
     }
     
     stage("Prepare build image") {
-           app = docker.build("km3pipe:${env.BUILD_ID}",
-                               "-f .")
+           app = docker.build("ololo/task20", "-f ."
     }
     
     /* stage('Build image') {
