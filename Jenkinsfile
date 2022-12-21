@@ -13,7 +13,7 @@ node ("Node1") {
             }
     }
     
-   */ stage('Build image') {
+    /* stage('Build image') {
         app = docker.build("ololo91/task20")
     }
 
