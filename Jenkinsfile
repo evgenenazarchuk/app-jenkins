@@ -13,7 +13,7 @@ node ("Node1") {
     }
     
     stage("Prepare build image") {
-          app_build = docker.build("ololo91/task20:${env.BUILD_NUMBER}", "-f Dockerfile .")
+          app_build = docker.build("${env.registry}:${env.BUILD_NUMBER}", "-f Dockerfile .")
     }
     
     stage('Push image') {
