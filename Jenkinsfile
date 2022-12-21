@@ -12,7 +12,7 @@ node ("Node1") {
     }
     
     stage("Run docker container") {
-         app = docker.image('mysql:5').withRun('-p 3306:3306') {
+         app = docker.image('ololo/task20').withRun('-p 80:80') {
            
          }
     }
