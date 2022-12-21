@@ -6,15 +6,18 @@ node ("Node1") {
 
         checkout scm
     }
-
-    stage('Build image') {
-        /* This builds the actual image; synonymous to
-         * docker build on the command line */
-
-       app = docker.build("ololo91/task20")
+    
+    stage("Prepare build image") {
+            steps {
+                sh "docker build -f Dockerfile . -t project-build:${DOCKER_IMAGE_BRANCH}"
+            }
+    }
+    
+   */ stage('Build image') {
+        app = docker.build("ololo91/task20")
     }
 
-    /*stage('Test image') {
+    stage('Test image') {
 
 
         app.inside {
