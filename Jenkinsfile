@@ -11,7 +11,7 @@ node ("Node1") {
            app = docker.build("ololo/task20:${env.BUILD_NUMBER}", "-f Dockerfile .")
     }
     
-    stage("Run docker container) {
+    stage("Run docker container") {
         app = docker.image('ololo/task20:${env.BUILD_NUMBER}').withRun('-u jenkins --entrypoint /bin/sh') 
           
     }
