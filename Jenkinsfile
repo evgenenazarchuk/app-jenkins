@@ -16,12 +16,12 @@ node ("Node1") {
         app_build = docker.build("${env.registry}:latest", "-f Dockerfile .")
     }
     
-    //stage('Push image') {
-    //    docker.withRegistry('https://registry.hub.docker.com', 'docker-hub-credentials') {
-    //        app_build.push("${env.BUILD_NUMBER}")
-           // app_build.push("latest")
-     //}  
-    // } 
+    stage('Push image') {
+        docker.withRegistry('https://registry.hub.docker.com/ololo91/task20', 'docker-hub-credentials') {
+           // app_build.push("${env.BUILD_NUMBER}")
+            app_build.push("latest")
+        }  
+     } 
     
     
     stage("Run docker container") {
