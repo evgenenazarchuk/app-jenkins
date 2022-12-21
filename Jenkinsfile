@@ -12,8 +12,9 @@ node ("Node1") {
     }
     
     stage("Run docker container") {
-        app = docker.image('ololo/task20').withRun('-u jenkins --entrypoint /bin/sh') 
-          
+         app = docker.image('mysql:5').withRun('-p 3306:3306') {
+            /* do things *
+         }
     }
     
     /* stage('Build image') {
