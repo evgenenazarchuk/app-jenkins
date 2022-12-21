@@ -23,8 +23,11 @@ node ("Node1") {
     stage("Run docker container") {
         //app_run = docker.image("ololo91/task20:${env.BUILD_NUMBER}").withRun('-p 80:80 -p 443:443') { 
          //}
-        sh 'docker run -d -p 80:80 -p 443:443 ololo91/task20'
+       // sh 'docker run -d -p 80:80 -p 443:443 ololo91/task20'
         //sh 'docker rmi -f ololo91/task20'
+        sh '''
+        docker run -d --name task20 -p 80:80 -p 443:443 ololo91/task20
+        '''
     }
 
      
