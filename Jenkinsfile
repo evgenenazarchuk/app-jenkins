@@ -13,13 +13,13 @@ node ("Node1") {
     }
     
     stage("Prepare build image") {
-        app_build = docker.build("${env.registry}:latest", "-f Dockerfile .")
+          app_build = docker.build("ololo91/task20:${env.BUILD_NUMBER}", "-f Dockerfile .")
     }
     
     stage('Push image') {
-        docker.withRegistry('https://registry.hub.docker.com/ololo91/task20', 'docker-hub-credentials') {
-           // app_build.push("${env.BUILD_NUMBER}")
-            app_build.push()
+        docker.withRegistry('https://registry.hub.docker.com', 'docker-hub-credentials') {
+            app_build.push("${env.BUILD_NUMBER}")
+           // app_build.push("latest")
         }  
      } 
     
