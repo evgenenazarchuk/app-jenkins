@@ -1,7 +1,7 @@
 node ("Node1") {
-    def app
+    //def app
     def app_build
-    def app_run
+    //def app_run
     
     stage('Clone repository') {
       
