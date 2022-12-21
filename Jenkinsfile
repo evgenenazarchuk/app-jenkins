@@ -26,11 +26,15 @@ node ("Node1") {
        // sh 'docker run -d -p 80:80 -p 443:443 ololo91/task20'
         //sh 'docker rmi -f ololo91/task20'
         sh '''
-        docker run -d --name task20 -p 80:80 -p 443:443 ololo91/task20
+        if [ $( docker ps -a -f name=task20 | wc -l ) -eq 2 ]; then
+            echo "task20 exist"
+        else
+            echo "testContainer does not exist"
+            docker run -d --name task20 -p 80:80 -p 443:443 ololo91/task20
+        fi     
         '''
     }
 
-     
 }
 
 
