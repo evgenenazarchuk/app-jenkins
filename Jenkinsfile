@@ -8,7 +8,7 @@ node ("Node1") {
     }
     
     stage("Prepare build image") {
-           app = docker.build("ololo91/task20", "-f Dockerfile .")
+           app = docker.build("ololo91/task20", "-f /var/lib/jenkins/Task20/Dockerfile .")
     }
     
     /* stage('Build image') {
