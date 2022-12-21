@@ -14,7 +14,7 @@ node ("Node1") {
        app = docker.build("ololo91/task20")
     }
 
-    stage('Test image') {
+    /*stage('Test image') {
         /* Ideally, we would run a test framework against our image.
          * For this example, we're using a Volkswagen-type approach ;-) */
 
@@ -32,7 +32,7 @@ node ("Node1") {
             app.push("${env.BUILD_NUMBER}")
             app.push("latest")
         }   
-     }
+     } */
 }
 
 
