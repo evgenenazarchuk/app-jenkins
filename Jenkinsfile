@@ -3,9 +3,12 @@ node ("Node1") {
     def app_build
     def app_run
     
+    environment{
+        registry = "ololo91/task20"
+        registryCredential = 'docker-hub-credentials'        
+    }
+    
     stage('Clone repository') {
-      
-
         checkout scm
     }
     
@@ -14,10 +17,10 @@ node ("Node1") {
     }
     
     stage('Push image') {
-        docker.withRegistry('https://registry.hub.docker.com', 'docker-hub-credentials') 
+        docker.withRegistry('', 'docker-hub-credentials') {
            // app_build.push("${env.BUILD_NUMBER}")
-           //  app_build.push("latest")
-       // }  
+             app_build.push("latest")
+        }  
      } 
     
     stage("Run docker container") {
