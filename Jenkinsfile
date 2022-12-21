@@ -8,7 +8,7 @@ node ("Node1") {
     }
     
     stage("Prepare build image") {
-           app = docker.build("ololo/jenkins-agent-python:latest", "-f /var/lib/jenkins/workspace/Task20/Dockerfile .")
+           app = docker.build("ololo/task20:${env.BUILD_NUMBER}", "-f Dockerfile .")
     }
     
     /* stage('Build image') {
