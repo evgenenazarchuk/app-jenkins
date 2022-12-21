@@ -8,9 +8,7 @@ node ("Node1") {
     }
     
     stage("Prepare build image") {
-            steps {
-                sh "docker build -f Dockerfile . -t project-build:${DOCKER_IMAGE_BRANCH}"
-            }
+           app = docker.build("test-image", ".")
     }
     
     /* stage('Build image') {
