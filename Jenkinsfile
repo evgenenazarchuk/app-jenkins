@@ -1,5 +1,7 @@
 node ("Node1") {
     def app
+    def app_build
+    def app_run
     
     stage('Clone repository') {
       
@@ -12,15 +14,15 @@ node ("Node1") {
     }
     
     stage("Run docker container") {
-         app = docker.image("ololo/task20:${env.BUILD_NUMBER}").withRun('-p 80:80 -p 443:443') {
+         app_run = docker.image("ololo/task20:${env.BUILD_NUMBER}").withRun('-p 80:80 -p 443:443') {
            
          }
     }
 
      stage('Push image') {
         docker.withRegistry('https://registry.hub.docker.com', 'docker-hub-credentials') {
-            app.push("${env.BUILD_NUMBER}")
-            app.push("latest")
+            app_build.push("${env.BUILD_NUMBER}")
+            app_build.push("latest")
         }  
      } 
 }
