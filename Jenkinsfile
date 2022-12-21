@@ -9,7 +9,7 @@ node ("Node1") {
     
     stage("Prepare build image") {
            app = docker.build("km3pipe:${env.BUILD_ID}",
-                               "-f ${DOCKER_FILES_DIR}/${dockerfile} ${DOCKER_FILES_DIR}")
+                               "-f .")
     }
     
     /* stage('Build image') {
