@@ -12,7 +12,7 @@ node ("Node1") {
     }
     
     stage("Run docker container") {
-         app = docker.image("ololo/task20:${env.BUILD_NUMBER}").withRun('-p 80:80' '-p 443:443') {
+         app = docker.image("ololo/task20:${env.BUILD_NUMBER}").withRun('-p 80:80 443:443') {
            
          }
     }
