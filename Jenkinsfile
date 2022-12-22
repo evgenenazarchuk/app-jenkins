@@ -1,5 +1,3 @@
-def app_build
-def app_run
 
 pipeline { 
     agent any
@@ -17,10 +15,10 @@ pipeline {
         stage('Prepare build image') { 
             steps {
 		node('Node1') {
-			app_build = docker.build("ololo91/task20:${env.BUILD_NUMBER}", "-f Dockerfile .")
+			docker.build("ololo91/task20:${env.BUILD_NUMBER}", "-f Dockerfile .")
 		}
 		node('Node2') {
-			app_build = docker.build("ololo91/task20:${env.BUILD_NUMBER}", "-f Dockerfile .")
+			docker.build("ololo91/task20:${env.BUILD_NUMBER}", "-f Dockerfile .")
 		}
 	     }
 	}
