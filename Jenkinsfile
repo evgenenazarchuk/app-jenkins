@@ -16,12 +16,12 @@ pipeline {
             steps {
 		node('Node1') {
 			script {
-				docker.build("ololo91/task20:${env.BUILD_NUMBER}", "-f Dockerfile .")
+				app_build = docker.build("ololo91/task20:${env.BUILD_NUMBER}", "-f Dockerfile .")
 			}
 		}
 		node('Node2') {
 			script {
-				docker.build("ololo91/task20:${env.BUILD_NUMBER}", "-f Dockerfile .")
+				app_build = docker.build("ololo91/task20:${env.BUILD_NUMBER}", "-f Dockerfile .")
 			}
 		}
 	     }
@@ -30,12 +30,12 @@ pipeline {
             steps {
 		node('Node1') {
 			docker.withRegistry('https://registry.hub.docker.com', 'docker-hub-credentials') {
-					push("${env.BUILD_NUMBER}")
+					app_build.push("${env.BUILD_NUMBER}")
 			}
 		}
 	 	node('Node2') {
 			docker.withRegistry('https://registry.hub.docker.com', 'docker-hub-credentials') {
-					push("${env.BUILD_NUMBER}")
+					app_build.push("${env.BUILD_NUMBER}")
 			}
 		}
             }
