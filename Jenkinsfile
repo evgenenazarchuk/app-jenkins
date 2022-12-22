@@ -1,3 +1,6 @@
+def app_build
+def app_run
+
 pipeline { 
     agent any
     stages {
