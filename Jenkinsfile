@@ -29,17 +29,13 @@ pipeline {
         stage('Push image') { 
             steps {
 		node('Node1') {
-			script {
-				docker.withRegistry('https://registry.hub.docker.com', 'docker-hub-credentials') {
+			docker.withRegistry('https://registry.hub.docker.com', 'docker-hub-credentials') {
 					push("${env.BUILD_NUMBER}")
-				}
 			}
 		}
 	 	node('Node2') {
-			script {
-				docker.withRegistry('https://registry.hub.docker.com', 'docker-hub-credentials') {
+			docker.withRegistry('https://registry.hub.docker.com', 'docker-hub-credentials') {
 					push("${env.BUILD_NUMBER}")
-				}
 			}
 		}
             }
