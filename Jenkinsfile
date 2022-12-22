@@ -1,4 +1,4 @@
-node ("Node1") {
+node ("Node2") {
     //def app
     def app_build
     def app_run
