@@ -15,10 +15,14 @@ pipeline {
         stage('Prepare build image') { 
             steps {
 		node('Node1') {
-			docker.build("ololo91/task20:${env.BUILD_NUMBER}", "-f Dockerfile .")
+			script {
+				docker.build("ololo91/task20:${env.BUILD_NUMBER}", "-f Dockerfile .")
+			}
 		}
 		node('Node2') {
-			docker.build("ololo91/task20:${env.BUILD_NUMBER}", "-f Dockerfile .")
+			script {
+				docker.build("ololo91/task20:${env.BUILD_NUMBER}", "-f Dockerfile .")
+			}
 		}
 	     }
 	}
