@@ -29,11 +29,15 @@ pipeline {
         stage('Push image') { 
             steps {
 		node('Node1') {
-			docker.withRegistry('https://registry.hub.docker.com', 'docker-hub-credentials') {
+			script {
+				docker.withRegistry('https://registry.hub.docker.com', 'docker-hub-credentials') {
+				}
 			}
 		}
 	 	node('Node2') {
-			docker.withRegistry('https://registry.hub.docker.com', 'docker-hub-credentials') {
+			script {
+				docker.withRegistry('https://registry.hub.docker.com', 'docker-hub-credentials') {
+				}
 			}
 		}
             }
